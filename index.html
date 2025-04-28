@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            /* border: 1px solid black; */
+            border-radius: 10px;
+            min-height: 400px;
+            min-width: 400px;
+            box-shadow: 3px 3px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(149, 129, 241);
+            padding: 20px;
+
+
+        }
+
+        h2 {
+            /* position: absolute;
+    top: 20px; */
+            color: rgba(255, 255, 255, 0.925);
+        }
+
+        input,
+        p,
+        button {
+            padding: 0 10px;
+            width: 300px;
+            line-height: 40px;
+            border-radius: 5px;
+            border: none;
+            margin-right: 2px;
+        }
+
+        button {
+            width: 50px;
+        }
+
+        .task-list {
+            height: 200px;
+            width: 100%;
+            background-color: blueviolet;
+            border-radius: 10px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            overflow: scroll;
+        }
+
+        p {
+
+            text-align: left;
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>To Do</h2>
+        <div class="input-area">
+            <input type="text" id="inputbox">
+            <button onclick="add()">Add</button>
+        </div>
+
+        <div class="task-list">
+        </div>
+
+    </div>
+
+    <script>
+        let count = 1;
+
+        function add() {
+        const now = new Date(); // Get current date and time
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const input = document.querySelector("#inputbox");
+        let p = document.createElement("p");
+        p.innerText = count + ". " + input.value + " | " + hours + ":" + minutes;
+        document.querySelector(".task-list").appendChild(p)
+        count++;
+
+        }
+
+        </script>
+</body>
+
+</html>
