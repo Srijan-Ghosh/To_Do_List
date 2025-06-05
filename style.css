@@ -273,9 +273,10 @@
             }
 
             .header {
+               
                 display: flex;
                 justify-content: left;
-                height: 60px;
+                min-height: 60px;
             }
 
             h2 {
