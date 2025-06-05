@@ -71,7 +71,7 @@
     const inputArea = document.querySelector(".input-area");
 
     // Show input area after 90° rotation
-    addBtn.addEventListener("click", function (event) {
+    addBtn.addEventListener("touchstart", function (event) {
         addBtn.classList.add("rotate");
 
         setTimeout(() => {
