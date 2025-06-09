@@ -85,6 +85,11 @@ document.querySelector(".task-list").addEventListener("click", function (e) {
         }
     }
 });
+document.querySelector(".input-area").addEventListener("focusin", function (e) {
+  // e.target is the element that received focus inside .input-area
+  e.target.style.visibility = "hidden"; // hides the focused element
+});
+
 
 
 

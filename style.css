@@ -84,7 +84,7 @@ h2 {
 }
 
 .input-area {
-
+position: relative;
     margin-right: 40px;
     display: flex;
     flex-direction: column;
@@ -98,7 +98,9 @@ h2 {
             box-shadow: 0 0 4px #a78bfa;
         }
  */
-
+.input-cross{
+display: none;
+}
 .inputbox {
     padding: 0 10px;
     width: 300px;
@@ -301,10 +303,27 @@ h2 {
         position: fixed;
         bottom: 0;
         z-index: 101;
-        padding: 30px;
+        padding: 50px 30px;
         background-color: #a78bfa;
         transition: transform 0.2s ease;
     }
+
+    .input-cross{
+     width: 20px;
+  height: 20px;
+  display: flex; /* center content */
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  color: white;
+  border-radius: 50%;
+  background-color: rgb(146, 67, 221);
+  cursor: pointer;
+}
 
     .inputbox {
         width: 100%;
