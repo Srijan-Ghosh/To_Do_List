@@ -43,10 +43,10 @@ function add() {
     input.value = "";
 }
 
-document.querySelector(".task-list").addEventListener("click", function(e) {
-  if (e.target.classList.contains("bin")) {
-    e.target.closest(".task-box").remove(); // Remove the full task box
-  }
+document.querySelector(".task-list").addEventListener("click", function (e) {
+    if (e.target.classList.contains("bin")) {
+        e.target.closest(".task-box").remove(); // Remove the full task box
+    }
 });
 
 
@@ -70,17 +70,20 @@ addBtn.addEventListener("touchstart", function (event) {
     event.stopPropagation();
 });
 
-document.querySelector(".task-list").addEventListener("click", function(e) {
-  if (e.target.matches('input[type="checkbox"]')) {
-    const taskBox = e.target.closest(".task-box");
-    const taskInfo = taskBox.querySelector(".task-info");
+document.querySelector(".task-list").addEventListener("click", function (e) {
+    if (e.target.matches('input[type="checkbox"]')) {
+        const taskBox = e.target.closest(".task-box");
+        const taskInfo = taskBox.querySelector(".task-info");
 
-    if (e.target.checked) {
-      taskInfo.style.borderColor = "#28a745";
-    } else {
-      taskInfo.style.borderColor = "#a489e4"; // Or remove the border if you want
+        if (e.target.checked) {
+            taskInfo.style.borderColor = "#28a745";
+            taskBox.style.order = 999;
+        } else {
+            taskInfo.style.borderColor = "#a489e4"; // Or remove the border if you want
+            taskBox.style.order = 0;
+            
+        }
     }
-  }
 });
 
 

@@ -160,7 +160,8 @@ h2 {
     border-radius: 30px;
     padding: 20px;
     display: flex;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
     flex-direction: column;
     gap: 10px;
     overflow: auto;
@@ -214,14 +215,12 @@ h2 {
     margin-right: 10px;
     width: 20px;
     height: 20px;
-    
+    accent-color: #28a745;
+
     /* green checkbox */
     cursor: pointer;
 }
 
-.task-box>input[type="checkbox"]:focus{
-    accent-color: #28a745;
-}
 
 .task-info {
     flex: 1;
