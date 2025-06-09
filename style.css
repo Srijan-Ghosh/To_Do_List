@@ -51,13 +51,13 @@ body {
 .header {
     position: relative;
     background-color: rgb(146, 67, 221);
-/* background-image: linear-gradient(to right, rgb(146, 67, 221), rgb(70, 130, 180)); */
+    /* background-image: linear-gradient(to right, rgb(146, 67, 221), rgb(70, 130, 180)); */
 
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
+    height: 70px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -108,7 +108,7 @@ h2 {
     border: 2px solid #d2cbe6;
     background: white;
     transition: all 0.3s ease;
-    
+
 }
 
 
@@ -120,7 +120,7 @@ h2 {
 
 .input-buttons {
     width: 100%;
-    
+
 
 }
 
@@ -170,11 +170,11 @@ h2 {
     min-height: 120px;
     width: 100%;
     border-radius: 20px;
-    padding: 15px 20px;
+    padding: 15px 15px;
     background-color: #ffffff;
     display: flex;
     align-items: flex-start;
-    gap: 10px;
+    gap: px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     position: relative;
@@ -191,20 +191,20 @@ h2 {
     right: 20px;
     display: flex;
     align-items: center;
-
+    gap: 1px;
     border-radius: 10px;
     border: none;
-    background-color: red;
+    background-color: rgb(231, 39, 39)red;
     padding: 12px;
     color: black;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    color: rgb(255, 255, 255);
+    color: rgb(231, 39, 39);
     font-weight: bold;
 
 }
 
 .clear-btn:hover {
-    background-color: rgb(230, 1, 1);
+    background-color: rgb(255, 206, 206);
 
 }
 
@@ -281,7 +281,10 @@ h2 {
 
         display: flex;
         justify-content: left;
+        align-items: center;
         min-height: 60px;
+        height: 60px;
+
     }
 
     h2 {
@@ -316,7 +319,6 @@ h2 {
 
     .clear-btn {
         position: absolute;
-        top: 10px;
         right: 10px;
         height: 40px;
         border-radius: 5px;
@@ -330,7 +332,7 @@ h2 {
         width: 60px;
         height: 60px;
         border-radius: 50%;
-    background-color: rgb(146, 67, 221);
+        background-color: rgb(146, 67, 221);
         z-index: 100;
         border: none;
         color: white;

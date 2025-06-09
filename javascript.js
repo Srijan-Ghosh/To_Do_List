@@ -1,40 +1,17 @@
- if (localStorage.getItem(0) < 1 || localStorage.getItem(0) == null) {
-            localStorage.setItem(0, 1);
-        }
-        let count = localStorage.getItem(0);
-
-        for (var i = 2; i <= count; i++) {
-            let task = localStorage.getItem(i);
-            const taskHTML = `
-        <div class="task-box">
-            <div class="task-head">
-            <p class="task-text">${count}. ${task}</p>
-            <p class="task-time">⏰ ${hours}:${minutes}</p>
-            </div>
-            <hr style="margin:2px 0;">
-            <div class="task-body">
-            <p class="task-des">${textarea.value}</p>
-            <i class="fa-solid fa-trash bin"></i>
-            </div>
-        </div>
-    `;
-
-            document.querySelector(".task-list").insertAdjacentHTML("beforeend", taskHTML);
-        }
+function add() {
+    const now = new Date();
+    const date = now.getDate();
+    const month = now.getMonth();
+    const year = now.getFullYear();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const textarea = document.querySelector("textarea")
+    const input = document.querySelector("input");
 
 
-        function add() {
-            const now = new Date();
-            const date = now.getDate();
-            const month = now.getMonth();
-            const year = now.getFullYear();
-            const hours = String(now.getHours()).padStart(2, "0");
-            const minutes = String(now.getMinutes()).padStart(2, "0");
-            const textarea = document.querySelector("textarea")
-            const input = document.querySelector("input");
-            if (input.value.trim() === "") return;
+    if (input.value.trim() === "") return;
 
-            const taskHTML = `
+    const taskHTML = `
         <div class="task-box">
             <input type="checkbox">
             <div class="task-info">
@@ -54,44 +31,44 @@
         </div>
     `;
 
-            document.querySelector(".task-list").insertAdjacentHTML("beforeend", taskHTML);
+    document.querySelector(".task-list").insertAdjacentHTML("beforeend", taskHTML);
 
-            localStorage.setItem(count, taskHTML);
-            count++;
-            localStorage.setItem(0, count);
-            input.value = "";
-        }
+    const taskObj = {
+        id: count,
+        name: input.value,
+        description: textarea.value,
+        date: `${date}/${month + 1}/${year}.⏰ ${hours}:${minutes}`
+    };
 
-        function refresh() {
-            localStorage.clear();
-            location.reload();
-        }
+    input.value = "";
+}
 
-        const addBtn = document.querySelector(".add-task");
-    const inputArea = document.querySelector(".input-area");
+document.querySelector(".task-list").addEventListener("click", function(e) {
+  if (e.target.classList.contains("bin")) {
+    e.target.closest(".task-box").remove(); // Remove the full task box
+  }
+});
 
-    // Show input area after 90° rotation
-    addBtn.addEventListener("touchstart", function (event) {
-        addBtn.classList.add("rotate");
 
-        setTimeout(() => {
-            inputArea.style.visibility = "visible";
-            addBtn.classList.remove("rotate");
-        }, 200);
+function clearAll() {
+    location.reload();
+}
 
-        // Prevent this click from triggering the document click event
-        event.stopPropagation();
-    });
+const addBtn = document.querySelector(".add-task");
+const inputArea = document.querySelector(".input-area");
 
-    // Prevent hiding if you click inside input-area
-    inputArea.addEventListener("click", function (event) {
-        event.stopPropagation();
-    });
+// Show input area after 90° rotation
+addBtn.addEventListener("touchstart", function (event) {
+    addBtn.classList.add("rotate");
 
-    // Hide input-area when clicking anywhere else
-    document.addEventListener("click", function () {
-        inputArea.style.visibility = "hidden";
-    });
+    setTimeout(() => {
+        inputArea.style.visibility = "visible";
+        addBtn.classList.remove("rotate");
+    }, 200);
+
+    // Prevent this click from triggering the document click event
+    event.stopPropagation();
+});
 
 
 
