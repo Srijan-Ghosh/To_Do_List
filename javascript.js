@@ -50,24 +50,29 @@ document.querySelector(".task-list").addEventListener("click", function (e) {
 });
 
 
-function clearAll() {
+function refresh() {
     location.reload();
 }
 
-const addBtn = document.querySelector(".add-task");
-const inputArea = document.querySelector(".input-area");
+// const addBtn = document.querySelector(".add-task");
+// const inputArea = document.querySelector(".input-area");
 
 // Show input area after 90° rotation
-addBtn.addEventListener("touchstart", function (event) {
-    addBtn.classList.add("rotate");
+// addBtn.addEventListener("click", function (event) {
+//     addBtn.classList.add("rotate");
 
-    setTimeout(() => {
-        inputArea.style.visibility = "visible";
-        addBtn.classList.remove("rotate");
-    }, 200);
+    // setTimeout(() => {
+    //     inputArea.style.visibility = "visible";
+    //     addBtn.classList.remove("rotate");
+    // }, 200);
 
-    // Prevent this click from triggering the document click event
-    event.stopPropagation();
+    // // Prevent this click from triggering the document click event
+    // event.stopPropagation();
+// });
+
+document.querySelector(".add-task").addEventListener("click", function () {
+    document.querySelector(".input-area").style.display="block";
+
 });
 
 document.querySelector(".task-list").addEventListener("click", function (e) {
@@ -81,13 +86,14 @@ document.querySelector(".task-list").addEventListener("click", function (e) {
         } else {
             taskInfo.style.borderColor = "#a489e4"; // Or remove the border if you want
             taskBox.style.order = 0;
-            
+
         }
     }
 });
-document.querySelector(".input-area").addEventListener("focusin", function (e) {
-  // e.target is the element that received focus inside .input-area
-  e.target.style.visibility = "hidden"; // hides the focused element
+
+document.querySelector(".input-cross").addEventListener("click", function () {
+    // e.target is the element that received focus inside .input-area
+    document.querySelector(".input-area").style.display = "none";
 });
 
 
