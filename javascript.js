@@ -70,6 +70,19 @@ addBtn.addEventListener("touchstart", function (event) {
     event.stopPropagation();
 });
 
+document.querySelector(".task-list").addEventListener("click", function(e) {
+  if (e.target.matches('input[type="checkbox"]')) {
+    const taskBox = e.target.closest(".task-box");
+    const taskInfo = taskBox.querySelector(".task-info");
+
+    if (e.target.checked) {
+      taskInfo.style.borderColor = "#28a745";
+    } else {
+      taskInfo.style.borderColor = "#a489e4"; // Or remove the border if you want
+    }
+  }
+});
+
 
 
 

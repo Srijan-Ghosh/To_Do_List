@@ -214,9 +214,13 @@ h2 {
     margin-right: 10px;
     width: 20px;
     height: 20px;
-    accent-color: #28a745;
+    
     /* green checkbox */
     cursor: pointer;
+}
+
+.task-box>input[type="checkbox"]:focus{
+    accent-color: #28a745;
 }
 
 .task-info {
