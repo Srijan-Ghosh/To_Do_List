@@ -1,3 +1,4 @@
+//ADDING TASKS
 function add() {
     const now = new Date();
     const date = now.getDate();
@@ -18,7 +19,7 @@ function add() {
             <div class="task-head">
             
             <p class="task-text">${input.value}</p>
-            <p class="task-time">${date}/${month}/${year}.⏰ ${hours}:${minutes}</p>
+            <p class="task-time"><i class="fa-solid fa-calendar"></i>${date}/${month}/${year}.⏰ ${hours}:${minutes}</p>
             </div>
 <hr style="margin:5px 0; border: none; border-top: 1px solid #c6b2e6;">
             <div class="task-body">
@@ -44,12 +45,12 @@ function add() {
 }
 
 document.querySelector(".task-list").addEventListener("click", function (e) {
-    if (e.target.classList.contains("bin")) {
+    if (e.target.classList.contains("bin") && confirm("Delete this task")) {
         e.target.closest(".task-box").remove(); // Remove the full task box
     }
 });
 
-
+//CLEAR ALL
 function refresh() {
     location.reload();
 }
@@ -61,20 +62,29 @@ function refresh() {
 // addBtn.addEventListener("click", function (event) {
 //     addBtn.classList.add("rotate");
 
-    // setTimeout(() => {
-    //     inputArea.style.visibility = "visible";
-    //     addBtn.classList.remove("rotate");
-    // }, 200);
+// setTimeout(() => {
+//     inputArea.style.visibility = "visible";
+//     addBtn.classList.remove("rotate");
+// }, 200);
 
-    // // Prevent this click from triggering the document click event
-    // event.stopPropagation();
+// // Prevent this click from triggering the document click event
+// event.stopPropagation();
 // });
 
-document.querySelector(".add-task").addEventListener("click", function () {
-    document.querySelector(".input-area").style.display="block";
+//INPUT BOX SHOW/HIDE
+const inputArea = document.querySelector('.input-area');
+const addTaskBtn = document.querySelector('.add-task');
+const inputCross = document.querySelector('.input-cross');
 
+addTaskBtn.addEventListener('click', () => {
+    inputArea.classList.add('show');
 });
 
+inputCross.addEventListener('click', () => {
+    inputArea.classList.remove('show');
+});
+
+//for checkbox function
 document.querySelector(".task-list").addEventListener("click", function (e) {
     if (e.target.matches('input[type="checkbox"]')) {
         const taskBox = e.target.closest(".task-box");
@@ -82,22 +92,23 @@ document.querySelector(".task-list").addEventListener("click", function (e) {
 
         if (e.target.checked) {
             taskInfo.style.borderColor = "#28a745";
-            taskBox.style.order = 999;
+            taskBox.classList.add("card-order");
         } else {
             taskInfo.style.borderColor = "#a489e4"; // Or remove the border if you want
-            taskBox.style.order = 0;
+            taskBox.classList.remove("card-order");
 
         }
     }
 });
 
-document.querySelector(".input-cross").addEventListener("click", function () {
-    // e.target is the element that received focus inside .input-area
-    document.querySelector(".input-area").style.display = "none";
+
+document.querySelector(".task-list").addEventListener("click", function (e) {
+    if (e.target.classList.contains("task-body")) {
+        e.target.closest(".task-box").classList.add("details"); // or ".task-box" if that's the class
+    }
+    else{
+                e.target.closest(".task-box").classList.remove("details"); // or ".task-box" if that's the class
+
+    }
 });
-
-
-
-
-
 

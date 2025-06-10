@@ -78,13 +78,9 @@ h2 {
     padding: 50px;
 }
 
-.working-area>div {
-    display: flex;
-    align-items: center;
-}
 
 .input-area {
-position: relative;
+    position: relative;
     margin-right: 40px;
     display: flex;
     flex-direction: column;
@@ -98,9 +94,10 @@ position: relative;
             box-shadow: 0 0 4px #a78bfa;
         }
  */
-.input-cross{
-display: none;
+.input-cross {
+    display: none;
 }
+
 .inputbox {
     padding: 0 10px;
     width: 300px;
@@ -148,7 +145,7 @@ display: none;
 }
 
 .add-task {
-    visibility: hidden;
+    display: none;
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -178,16 +175,21 @@ display: none;
     display: flex;
     align-items: flex-start;
     gap: px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
     position: relative;
 }
 
-.task-list>div:hover {
-    transform: scale(1.01);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.task-list>div.details {
+    height: 300px;
+    /* box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3); */
 }
 
+.task-box.card-order {
+    transition: transform 0.2s ease-in-out;
+    order: 999;
+    z-index: 50;
+}
 
 .clear-btn {
     position: absolute;
@@ -231,6 +233,8 @@ display: none;
     background-color: #f9f8fe;
     border-left: 4px solid #a78bfa;
     height: 100%;
+    overflow: hidden;
+
     /* soft lavender accent */
 }
 
@@ -241,12 +245,14 @@ display: none;
 }
 
 .task-text {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 .task-time {
-    font-size: 12px;
+    display: flex;
+    gap: 5px;
+    font-size: 10px;
     color: grey;
 }
 
@@ -258,7 +264,7 @@ display: none;
 
 
 .task-des {
-    font-size: 15px;
+    font-size: 12px;
     color: grey;
 
 }
@@ -296,8 +302,11 @@ display: none;
         margin-left: 10px;
     }
 
-    .input-area {
-    display: none;
+    /* .input-area {
+        visibility: hidden;
+        
+        transform: translateY(100%);
+        transition:  1s ease-in-out;
         width: 100vw;
         margin: auto;
         position: fixed;
@@ -306,25 +315,53 @@ display: none;
         padding: 50px 30px;
         background-color: #a78bfa;
         transform: translateY(0);
-        transition: s ease-out;
+        transition: 0.3s ease-in-out;
     }
 
-    .input-cross{
-     width: 20px;
-  height: 20px;
-  display: flex; /* center content */
-  align-items: center;
-  justify-content: center;
+    .input-area.show {
+        visibility: visible;
+       
+        transform: translateY(0);
+    }
+ */
 
-  position: absolute;
-  top: 10px;
-  right: 10px;
+    .input-area {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 101;
+        padding: 50px 30px;
+        width: 100vw;
+        border-radius: 20px 20px 0 0;
+        background-color: #a78bfa;
 
-  color: white;
-  border-radius: 50%;
-  background-color: rgb(146, 67, 221);
-  cursor: pointer;
-}
+        /* Hide by default */
+        transform: translateY(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .input-area.show {
+        transform: translateY(0);
+    }
+
+    .input-cross {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        /* center content */
+        align-items: center;
+        justify-content: center;
+
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        color: white;
+        border-radius: 50%;
+        background-color: rgb(146, 67, 221);
+        cursor: pointer;
+    }
 
     .inputbox {
         width: 100%;
@@ -351,7 +388,7 @@ display: none;
         position: fixed;
         bottom: 30px;
         right: 30px;
-        visibility: visible;
+        display: block;
         width: 60px;
         height: 60px;
         border-radius: 50%;
