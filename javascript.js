@@ -46,7 +46,7 @@ function add() {
     // setTimeout(() => {
     //     taskElement.classList.add("slide");
     // }, 10);
-
+taskAvailable();
     const taskObj = {
         id: count,
         name: input.value,
@@ -55,11 +55,13 @@ function add() {
     };
 
     input.value = "";
+    
 }
 
 document.querySelector(".task-list").addEventListener("click", function (e) {
     if (e.target.classList.contains("bin") && confirm("Delete this task")) {
         e.target.closest(".task-box").remove(); // Remove the full task box
+        taskAvailable();
     }
 });
 
@@ -124,17 +126,23 @@ document.querySelector(".task-list").addEventListener("click", function (e) {
     }
 });
 
+function taskAvailable() {
+    const taskList = document.querySelector(".task-list");
 
-// document.querySelector(".task-list-comment").addEventListener("click", function (e) {
-//     const taskBox = e.target.closest(".task-box");
-//     if (e.target.classList.contains("arrow")) {
-//         taskBox.classList.toggle("details");
-//         e.target.classList.toggle("rotate");
+    // Check if the element exists inside the div
+    if (taskList.querySelector(".task-box")) {
+        // "Toggle off" behavior - e.g., remove a class
+        document.querySelector(".task-list-comment").style.display= "none";
 
+        // OR you could disable a button, hide an element, etc.
+        // document.getElementById('toggle-target').style.display = 'none';
+        // document.getElementById('toggle-target').disabled = true;
+    } else {
+        document.querySelector(".task-list-comment").style.display = "flex";
 
-//     }
-// });
-
+    }
+}
+    
 
 // const taskDes = document.querySelector(".task-des")''
 //     taskDesfunction () {
