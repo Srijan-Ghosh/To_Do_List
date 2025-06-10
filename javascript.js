@@ -125,6 +125,17 @@ document.querySelector(".task-list").addEventListener("click", function (e) {
 });
 
 
+// document.querySelector(".task-list-comment").addEventListener("click", function (e) {
+//     const taskBox = e.target.closest(".task-box");
+//     if (e.target.classList.contains("arrow")) {
+//         taskBox.classList.toggle("details");
+//         e.target.classList.toggle("rotate");
+
+
+//     }
+// });
+
+
 // const taskDes = document.querySelector(".task-des")''
 //     taskDesfunction () {
 //         if (taskDes.)
