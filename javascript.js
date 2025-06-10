@@ -14,7 +14,11 @@ function add() {
 
     const taskHTML = `
         <div class="task-box">
+        <div class="ckeck-arrow">
             <input type="checkbox">
+            
+            <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
             <div class="task-info">
             <div class="task-head">
             
@@ -22,12 +26,10 @@ function add() {
             <p class="task-time"><i class="fa-solid fa-calendar"></i>${date}/${month}/${year}.⏰ ${hours}:${minutes}</p>
             </div>
 <hr style="margin:5px 0; border: none; border-top: 1px solid #c6b2e6;">
-            <div class="task-body">
             <p class="task-des">${textarea.value}</p>
             <i class="bi bi-trash bin"></i>
 
-             </div>
-        </div>
+            </div>
         </div>
         </div>
     `;
@@ -101,14 +103,14 @@ document.querySelector(".task-list").addEventListener("click", function (e) {
     }
 });
 
-
 document.querySelector(".task-list").addEventListener("click", function (e) {
-    if (e.target.classList.contains("task-body")) {
-        e.target.closest(".task-box").classList.add("details"); // or ".task-box" if that's the class
-    }
-    else{
-                e.target.closest(".task-box").classList.remove("details"); // or ".task-box" if that's the class
+    const taskBox = e.target.closest(".task-box");
+    if (e.target.classList.contains("arrow")) {
+        taskBox.classList.toggle("details");
+        e.target.classList.toggle("rotate");
+
 
     }
 });
+
 

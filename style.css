@@ -166,24 +166,22 @@ h2 {
     overflow: auto;
 }
 
-.task-list>div {
+.task-list>.task-box {
     min-height: 120px;
     width: 100%;
     border-radius: 20px;
     padding: 15px 15px;
     background-color: #ffffff;
     display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
     gap: px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease;
+    transition:0.5s ease;
     position: relative;
 }
 
-.task-list>div.details {
-    height: 300px;
-    /* box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3); */
-}
+.task-list>.task-box.details {
+min-height: 300px;}
 
 .task-box.card-order {
     transition: transform 0.2s ease-in-out;
@@ -199,7 +197,7 @@ h2 {
     gap: 1px;
     border-radius: 10px;
     border: none;
-    background-color: rgb(231, 39, 39)red;
+    background-color: white;
     padding: 12px;
     color: black;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -215,16 +213,47 @@ h2 {
 
 
 .task-box>input[type="checkbox"] {
-    margin-top: 8px;
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
+   
+    /* height: 20px; */
     accent-color: #28a745;
 
     /* green checkbox */
     cursor: pointer;
 }
 
+.ckeck-arrow{
+    height: 100%;
+     margin-top: 8px;
+    margin-right: 10px;
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.arrow{
+    margin-bottom: 8px;
+    height: 20px;
+    width: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(231, 133, 133);
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+}
+
+.arrow:hover{
+        background-color: rgb(224, 108, 108);
+    transform: scale(1.5px);
+}
+
+.arrow.rotate{
+    transform: rotate(180deg);
+    transition: 0.3s ease;
+}
 
 .task-info {
     flex: 1;
@@ -242,6 +271,7 @@ h2 {
 .task-head {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .task-text {
@@ -256,11 +286,6 @@ h2 {
     color: grey;
 }
 
-.task-body {
-    position: relative;
-    min-height: 40px;
-    /* Adjust as needed */
-}
 
 
 .task-des {
@@ -272,8 +297,8 @@ h2 {
 .bin {
     color: rgb(231, 39, 39);
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 20px;
+    bottom: 20px;
 }
 
 @media(max-width:600px) {
