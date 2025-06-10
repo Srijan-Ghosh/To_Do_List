@@ -35,6 +35,17 @@ function add() {
     `;
 
     document.querySelector(".task-list").insertAdjacentHTML("beforeend", taskHTML);
+    // const tempDiv = document.createElement("div");
+    // tempDiv.innerHTML = taskHTML;
+    // const taskElement = tempDiv.firstElementChild;
+
+    // // Append to task list
+    // document.querySelector(".task-list").appendChild(taskElement);
+
+    // // Wait a bit and then add slide class to trigger transition
+    // setTimeout(() => {
+    //     taskElement.classList.add("slide");
+    // }, 10);
 
     const taskObj = {
         id: count,
@@ -113,4 +124,9 @@ document.querySelector(".task-list").addEventListener("click", function (e) {
     }
 });
 
+
+// const taskDes = document.querySelector(".task-des")''
+//     taskDesfunction () {
+//         if (taskDes.)
+// });
 
