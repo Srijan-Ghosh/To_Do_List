@@ -176,12 +176,13 @@ h2 {
     justify-content: space-between;
     gap: px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    transition:0.5s ease;
+    transition: 0.5s ease;
     position: relative;
 }
 
 .task-list>.task-box.details {
-min-height: 300px;}
+    min-height: 300px;
+}
 
 .task-box.card-order {
     transition: transform 0.2s ease-in-out;
@@ -212,8 +213,12 @@ min-height: 300px;}
 }
 
 
-.task-box>input[type="checkbox"] {
-   
+.task-box input[type="checkbox"],
+.task-box .arrow {
+    height: 20px;
+    width: 20px;
+
+    border-radius: 5px;
     /* height: 20px; */
     accent-color: #28a745;
 
@@ -221,9 +226,8 @@ min-height: 300px;}
     cursor: pointer;
 }
 
-.ckeck-arrow{
-    height: 100%;
-     margin-top: 8px;
+.ckeck-arrow {
+    margin: 8px 0;
     margin-right: 10px;
     width: 20px;
     display: flex;
@@ -231,26 +235,22 @@ min-height: 300px;}
     justify-content: space-between;
 }
 
-.arrow{
-    margin-bottom: 8px;
-    height: 20px;
-    width: 20px;
-    width: 100%;
+.arrow {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(231, 133, 133);
-    border-radius: 5px;
+
     color: white;
     font-size: 12px;
 }
 
-.arrow:hover{
-        background-color: rgb(224, 108, 108);
+.arrow:hover {
+    background-color: rgb(224, 108, 108);
     transform: scale(1.5px);
 }
 
-.arrow.rotate{
+.arrow.rotate {
     transform: rotate(180deg);
     transition: 0.3s ease;
 }
@@ -297,8 +297,8 @@ min-height: 300px;}
 .bin {
     color: rgb(231, 39, 39);
     position: absolute;
-    right: 20px;
-    bottom: 20px;
+    right: 25px;
+    bottom: 25px;
 }
 
 @media(max-width:600px) {
